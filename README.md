@@ -72,7 +72,7 @@ Use `--` to separate these options from Leiningen's options, e.g. `lein new ches
 If you want to customize Chestnut, or try unreleased features, you can run directly from master like this:
 
 ``` sh
-git clone https://github.com/plexus/chestnut.git
+git clone https://github.com/jellea/chestnut.git
 cd chestnut
 lein install
 ```

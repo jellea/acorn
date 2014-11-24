@@ -1,14 +1,22 @@
 (ns {{project-ns}}.core
-  (:require [om.core :as om :include-macros true]{{{core-cljs-requires}}}))
+  (:require [reagent.core :as reagent :refer [atom]]))
 
-(defonce app-state (atom {:text "Hello Chestnut!"}))
+(enable-console-print!)
+
+(defonce timer (atom (js/Date.)))
+(defonce time-color (atom "#f34"))
+
+(defn update-time [time]
+  ;; Update the time every 1/10 second to be accurate...
+  (js/setTimeout #(reset! time (js/Date.)) 100))
+
+(defn clock []
+  (update-time timer)
+  (let [time-str (-> @timer .toTimeString (clojure.string/split " ") first)]
+    [:h1
+     {:style {:color @time-color}}
+     time-str]))
 
 (defn main []
-  (om/root
-    (fn [app owner]
-      (reify
-        om/IRender
-        (render [_]
-          (dom/h1 {{#not-om-tools?}}nil {{/not-om-tools?}}(:text app)))))
-    app-state
-    {:target (. js/document (getElementById "app"))}))
+  (reagent/render-component (fn [] [clock])
+                            (. js/document (getElementById "app"))))
