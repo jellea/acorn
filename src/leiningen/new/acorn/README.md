@@ -32,7 +32,7 @@ in 21.36 seconds.`, you're ready to go. Browse to
 
 ## Trying it out
 
-If all is well you now have a browser window saying 'Hello Chestnut',
+If all is well you now have a browser window saying 'Hello Acorn',
 and a REPL prompt that looks like `cljs.user=>`.
 
 Open `resources/public/css/style.css` and change some styling of the

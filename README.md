@@ -1,6 +1,6 @@
-# chestnut
+# acorn
 
-[![Clojars Project](http://clojars.org/chestnut/lein-template/latest-version.svg)](http://clojars.org/chestnut/lein-template)
+[![Clojars Project](http://clojars.org/acorn/lein-template/latest-version.svg)](http://clojars.org/acorn/lein-template)
 
 A Leiningen template for a Clojure/ClojureScript app based on Om,
 featuring a great dev setup, and easy deployment.
@@ -20,7 +20,7 @@ in your generated project for instructions pertaining to your version.
 ## Usage
 
 ```
-lein new chestnut <name>
+lein new acorn <name>
 ```
 
 After that open the README of your generated project for detailed instructions.
@@ -49,11 +49,11 @@ Clojure/ClojureScript apps effectively. It comes with
 * [Om](https://github.com/swannodette/om) ClojureScript interface to
   Facebook's React.
 * [Ring](https://github.com/ring-clojure/ring) Clojure's de facto HTTP
-  interface. Chestnut uses a Jetty or HttpKit server to serve the
+  interface. Acorn uses a Jetty or HttpKit server to serve the
   Clojurescript app. This way you already have an HTTP server running
-  in case you want to add server-side functionality. Chestnut also
+  in case you want to add server-side functionality. Acorn also
   inserts a Ring middleware to reload server-side Clojure files.
-* Heroku support. Chestnut apps have all the bits and pieces to be
+* Heroku support. Acorn apps have all the bits and pieces to be
   deployable to Heroku. Getting your app on the web is as simple as
   `git push`.
 
@@ -65,15 +65,15 @@ Clojure/ClojureScript apps effectively. It comes with
 * `--cljx` Using [cljx](https://github.com/lynaghk/cljx) allows you to write code that is shared between Clojure and ClojureScript.
 * `--less` Use [less](https://github.com/montoux/lein-less) for compiling Less CSS files.
 
-Use `--` to separate these options from Leiningen's options, e.g. `lein new chestnut foo -- --om-tools --http-kit`
+Use `--` to separate these options from Leiningen's options, e.g. `lein new acorn foo -- --om-tools --http-kit`
 
 ## Local copy
 
-If you want to customize Chestnut, or try unreleased features, you can run directly from master like this:
+If you want to customize Acorn, or try unreleased features, you can run directly from master like this:
 
 ``` sh
 git clone https://github.com/jellea/chestnut.git
-cd chestnut
+cd acorn
 lein install
 ```
 
@@ -87,10 +87,10 @@ Note that master may be partially or wholly broken. I try to do extensive manual
 ## FAQ
 
 * **Q:** How can I get the features in the SNAPSHOT version? <br>
-  **A:** Use leiningen's `--snapshot` flag, e.g. `lein new chestnut my-project --snapshot`
+  **A:** Use leiningen's `--snapshot` flag, e.g. `lein new acorn my-project --snapshot`
 * **Q:** I'm seeing warnings while compiling ClojureScript. <br>
   **A:** There are a few known warnings, but they should not affect the functioning of your app.
-* **Q:** I changed the `{:text "Hello Chestnut!"}` portion and saved the file, but the changes don't show up. <br>
+* **Q:** I changed the `{:text "Hello Acorn!"}` portion and saved the file, but the changes don't show up. <br>
   **A:** It's a feature. The `app-state` is defined with `defonce`, so your application state doesn't reset every time you save a file. If you do want to reset after every change, change `(defonce app-state ..)` to `(def app-state ...)`.
 * **Q:** I just want to compile ClojureScript to fully optimized JavaScript, so I can use it in a static HTML site. <br>
   **A:** Invoke cljsbuild with the uberjar profile active, like this: `lein with-profile -dev,+uberjar cljsbuild once`, then look for `resources/public/js/app.js`.

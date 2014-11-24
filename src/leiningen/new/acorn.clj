@@ -1,10 +1,10 @@
-(ns leiningen.new.chestnut
+(ns leiningen.new.acorn
   (:require [leiningen.new.templates :refer [renderer name-to-path ->files
                                              sanitize sanitize-ns project-name]]
             [leiningen.core.main :as main]
             [clojure.string :refer [join]]))
 
-(def render (renderer "chestnut"))
+(def render (renderer "acorn"))
 
 (defn wrap-indent [wrap n list]
   (fn []
@@ -105,15 +105,15 @@
                 ["resources/public/css/style.css"
                  (render "resources/public/css/style.css" data)])
               ["src/clj/{{sanitized}}/server.clj"
-               (render "src/clj/chestnut/server.clj" data)]
+               (render "src/clj/acorn/server.clj" data)]
               ["src/clj/{{sanitized}}/dev.clj"
-               (render "src/clj/chestnut/dev.clj" data)]
+               (render "src/clj/acorn/dev.clj" data)]
               ["src/cljs/{{sanitized}}/core.cljs"
-               (render "src/cljs/chestnut/core.cljs" data)]
+               (render "src/cljs/acorn/core.cljs" data)]
               ["env/dev/cljs/{{sanitized}}/dev.cljs"
-               (render "env/dev/cljs/chestnut/dev.cljs" data)]
+               (render "env/dev/cljs/acorn/dev.cljs" data)]
               ["env/prod/cljs/{{sanitized}}/prod.cljs"
-               (render "env/prod/cljs/chestnut/prod.cljs" data)]
+               (render "env/prod/cljs/acorn/prod.cljs" data)]
               ["LICENSE"
                (render "LICENSE" data)]
               ["README.md"
@@ -129,9 +129,9 @@
 
     (if (cljx? opts)
       (conj args ["src/cljx/{{sanitized}}/core.cljx"
-                  (render "src/cljx/chestnut/core.cljx" data)])
+                  (render "src/cljx/acorn/core.cljx" data)])
       args)))
 
-(defn chestnut [name & opts]
-  (main/info "Generating fresh 'lein new' chestnut project.")
+(defn acorn [name & opts]
+  (main/info "Generating fresh 'lein new' acorn project.")
   (apply ->files (format-files-args name opts)))
