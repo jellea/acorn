@@ -1,7 +1,7 @@
 (ns {{project-ns}}.core
   (:require [om.core :as om :include-macros true]{{{core-cljs-requires}}}))
 
-(defonce app-state (atom {:text "Hello Chestnut!"}))
+(defonce app-state (atom {:text "Hello Acorn!"}))
 
 (defn main []
   (om/root
